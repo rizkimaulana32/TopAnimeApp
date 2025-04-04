@@ -49,7 +49,7 @@ android {
 dependencies {
 
     implementation(project(":core"))
-    testImplementation(libs.junit.junit)
+    testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
@@ -58,6 +58,8 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     debugImplementation(libs.leakcanary.android)
     implementation(libs.error.prone.annotations)
+
+//    androidTestImplementation("org.jetbrains.kotlin:kotlin-stdlib:2.1.20")
 
     implementation(libs.koin.androidx.compose)
 }
