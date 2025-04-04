@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -27,6 +28,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.LottieConstants
+import com.airbnb.lottie.compose.animateLottieCompositionAsState
+import com.airbnb.lottie.compose.rememberLottieComposition
 import com.c242ps518.core.data.repository.UiState
 import com.c242ps518.core.domain.model.Anime
 import com.c242ps518.topanimeairing.ui.screen.home.AnimeListItem
@@ -155,7 +161,30 @@ fun NoFavoriteAnime(navigateBack: () -> Unit, modifier: Modifier = Modifier) {
         }
 
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            Text(text = "No Favorite Anime")
+            AnimatedEmptyAnime(
+                modifier = Modifier.size(280.dp)
+            )
         }
     }
+}
+
+@Composable
+fun AnimatedEmptyAnime(modifier: Modifier = Modifier) {
+    val emptyAnimeLottieComposition by rememberLottieComposition(
+        LottieCompositionSpec.Asset(
+            "emptyanime.json"
+        )
+    )
+
+    val emptyAnimeProgress by animateLottieCompositionAsState(
+        emptyAnimeLottieComposition,
+        iterations = LottieConstants.IterateForever,
+        isPlaying = true
+    )
+
+    LottieAnimation(
+        composition = emptyAnimeLottieComposition,
+        progress = emptyAnimeProgress,
+        modifier = modifier
+    )
 }
