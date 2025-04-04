@@ -66,7 +66,6 @@ fun TopAnimeAiring(
 
             composable(Screen.Favorite.route){
                 NavigateDf.loadDF(
-                    paddingValues = innerPadding,
                     className = "com.c242ps518.favorite.FavoriteScreenKt",
                     methodName = "FavoriteScreen",
                     navigateToDetail = { animeId ->

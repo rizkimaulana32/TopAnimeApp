@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -21,7 +20,6 @@ import java.lang.reflect.Method
 object NavigateDf {
     @Composable
     fun loadDF(
-        paddingValues: PaddingValues,
         className: String,
         methodName: String,
         objectInstance: Any = Any(),
@@ -47,16 +45,16 @@ object NavigateDf {
                     0
                 )
                 if (!isMethodInvoked) {
-                    ShowDFNotFoundScreen(paddingValues = paddingValues)
+                    ShowDFNotFoundScreen()
                     return false
                 }
                 return true
             } else {
-                ShowDFNotFoundScreen(paddingValues = paddingValues)
+                ShowDFNotFoundScreen()
                 return false
             }
         } else {
-            ShowDFNotFoundScreen(paddingValues = paddingValues)
+            ShowDFNotFoundScreen()
             return false
         }
     }
@@ -101,13 +99,12 @@ object NavigateDf {
 
 
     @Composable
-    fun ShowDFNotFoundScreen(paddingValues: PaddingValues) {
+    fun ShowDFNotFoundScreen() {
         Column(
             modifier = Modifier
                 .background(Color.Red)
                 .fillMaxWidth()
-                .fillMaxHeight()
-                .padding(paddingValues),
+                .fillMaxHeight(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
