@@ -19,3 +19,13 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keep @androidx.compose.runtime.Composable class * { *; }
+
+-keep class com.google.errorprone.annotations.** { *; }
+
+-keep class javax.lang.model.element.** { *; }
+
+-keepattributes *Annotation*
+
+-dontwarn javax.lang.model.element.Modifier
