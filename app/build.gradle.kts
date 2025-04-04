@@ -59,7 +59,5 @@ dependencies {
     debugImplementation(libs.leakcanary.android)
     implementation(libs.error.prone.annotations)
 
-//    androidTestImplementation("org.jetbrains.kotlin:kotlin-stdlib:2.1.20")
-
     implementation(libs.koin.androidx.compose)
 }
