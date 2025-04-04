@@ -29,3 +29,5 @@
 -keepattributes *Annotation*
 
 -dontwarn javax.lang.model.element.Modifier
+
+-keep class kotlin.** { *; }
