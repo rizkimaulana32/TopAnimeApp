@@ -1,5 +1,6 @@
 package com.c242ps518.favorite
 
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
@@ -20,8 +21,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -40,6 +39,7 @@ fun FavoriteScreen(
     navigateToDetail: (Long) -> Unit,
     navigateBack: () -> Unit,
 ) {
+    Log.d("FavoriteScreen", "$navigateToDetail, $navigateBack")
     val context = LocalContext.current
 
     loadKoinModules(favoriteModule)
